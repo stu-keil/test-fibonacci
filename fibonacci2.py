@@ -1,7 +1,9 @@
 def fibonacci(n: int) -> list[int]:
-    """Return the first n terms of the Fibonacci sequence."""
+    """Devuelve los primeros n términos de la sucesión de Fibonacci."""
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise TypeError("n debe ser un entero")
     if n < 0:
-        raise ValueError("n must be non-negative")
+        raise ValueError("n debe ser mayor o igual que 0")
 
     sequence = []
     first, second = 0, 1
@@ -9,3 +11,7 @@ def fibonacci(n: int) -> list[int]:
         sequence.append(first)
         first, second = second, first + second
     return sequence
+
+
+if __name__ == "__main__":
+    print(fibonacci(10))
